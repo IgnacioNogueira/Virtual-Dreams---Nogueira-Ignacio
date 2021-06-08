@@ -34,4 +34,5 @@ Los objetos que se relacionan de forma estándar con Case son Account Name, Asse
 Article:
 Los objetos que contiene de forma estándar son Data Category Group Name, Data Category Name y Parent Id.
 
-![Link Diagrama - Ejercicio 5:](https://github.com/IgnacioNogueira/Virtual-Dreams---Nogueira-Ignacio/blob/50c7a57792a9b5ffe14112c2ee6ae1ba14c3dd8f/Diagrama%20-%20Ejercicio%205.png)
+Link Diagrama - Ejercicio 5
+![Link Diagrama:](https://github.com/IgnacioNogueira/Virtual-Dreams---Nogueira-Ignacio/blob/50c7a57792a9b5ffe14112c2ee6ae1ba14c3dd8f/Diagrama%20-%20Ejercicio%205.png)

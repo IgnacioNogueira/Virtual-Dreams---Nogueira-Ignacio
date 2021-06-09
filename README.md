@@ -98,8 +98,7 @@ https://vdfactory-234311.firebaseio.com/contacts.json
 
 - La diferencia que encuentro es que ahora se pasan mis datos a la estructura.
 
-![Ejercicio 3 - Item 3](https://user-images.githubusercontent.com/85534808/121247641-dd568e00-c878-11eb-8d9b-83c1f6fd0a1a.png)
-
+![Punto 3 - item 3](https://user-images.githubusercontent.com/85534808/121421379-7b635a80-c944-11eb-96a7-8f3c78627ef9.png)
 
 EJERCICIO 4:
 

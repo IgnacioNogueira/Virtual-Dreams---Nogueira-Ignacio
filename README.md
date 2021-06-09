@@ -197,30 +197,70 @@ C.	Desarrollar un trigger para que cuando un usuario Modifica o Crea un contacto
 Traté de resolver el punto c haciendo un trigger de la siguiente forma:
 
 trigger WhenModifyorCreate on Contact (after insert, after update) {
+     
     
-    if(Trigger.isInsert || Trigger.isUpdate)
-     {
-            
-    Http http = new Http();
-    HttpRequest request = new HttpRequest();
-    request.setEndpoint('https://vdfactory-234311.firebaseio.com/contacts.json');
-    request.setMethod('GET');
-    request.setHeader('Content-Type', 'application/json;charset=UTF-8');
-        request.setBody('{"firstname":"Ignacio","email":"ignacio.nogueira@hotmail.com","-MbBsOGPVvnq4Q_f6rVO"}');
+    ///Para obtener los datos
+        Http http = new Http();
+           HttpRequest request = new HttpRequest();
+           request.setEndpoint('https://vdfactory-234311.firebaseio.com/contacts.json');
+           request.setMethod('GET');
+           request.setHeader('Content-Type', 'application/json;charset=UTF-8');
+                
+           request.setBody('{"firstname":"Ignacio","email":"ignacio.nogueira@hotmail.com","-MbBsOGPVvnq4Q_f6rVO"}');
+                
+           HttpResponse response = http.send(request);
+        
+    // Si no se pudo obtener
     
-    HttpResponse response = http.send(request);
-       if (response.getStatusCode() != 201) {
+    if (response.getStatusCode() != 201)
+    {
         System.debug('The status code returned was not expected: ' +
             response.getStatusCode() + ' ' + response.getStatus());
-    } else {
-        System.debug(response.getBody());
-    	}
+    } 
+    
+    else {
+ 
+        if(Trigger.isInsert){ 
+                      
+            List<Contact> ct = new List <Contact>();
+            
+            for(Contact acc : trigger.new){
+    
+                Contact c = new Contact(Email = acc.Email);
+    
+                ct.add(c);
+        
+            }
+        
+            if(!ct.isEmpty())
+                insert ct; 
+   		}
+        
+       else{
+        
+        List<contact> cntsload = new List <Contact>();
+        
+        for(Contact acc : trigger.new){
+            List<Contact> cnt = new List<Contact>();
+            
+            cnt= [SELECT Email FROM Contact WHERE Email = :acc.Email];
+        
+        	if(cnt.isEmpty()){
+
+        		Contact c = new Contact(Email = acc.Email);
+
+        		cntsload.add(c);
+        
+       		}
+        }
+        
+        if(!cntsload.isEmpty())
+            insert cntsload; 
+    
+ 		}    
     }
+    
 }
-
-
-En donde traté de hacer un llamado a la request para obtener el mail con la ID, pero no pude avanzar en asignarlo al campo de Salesforce los datos. 
-
 
 EJERCICIO 7
 

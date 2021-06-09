@@ -196,6 +196,7 @@ C.	Desarrollar un trigger para que cuando un usuario Modifica o Crea un contacto
 
 Traté de resolver el punto c haciendo un trigger de la siguiente forma:
 
+
 trigger WhenModifyorCreate on Contact (after insert, after update) {
      
     
@@ -261,6 +262,8 @@ trigger WhenModifyorCreate on Contact (after insert, after update) {
     }
     
 }
+
+
 
 EJERCICIO 7
 
